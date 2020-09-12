@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 TEST_DIR_NAME='test_dir'
 REPO_NAME='/TecoGAN'
@@ -17,12 +17,9 @@ git clone $remote_url $TEST_DIR_NAME
 cd $TEST_DIR_NAME
 docker build docker --no-cache -t tecogan_image
 
-#python3 runGan.py 0 > log_runGan_0
-#python3 runGan.py 1 > log_runGan_1
-#python3 runGan.py 2 > log_runGan_2
 for i in {0..2}
 do
-    python3 runGan.py $i > "$LOG_PREFIX""$i"
+    python3 runGan.py $i 2>&1 | tee "$LOG_PREFIX""$i"
 done
 for i in {0..2}
 do
