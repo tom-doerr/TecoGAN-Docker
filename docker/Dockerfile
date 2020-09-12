@@ -17,7 +17,6 @@ scikit-image==0.13.0 \
 matplotlib==1.5.1 \
 pandas==0.23.1 \
 Keras==2.1.2 \
-torch==0.4.0 \
 torchvision==0.2.1 \
 opencv-python==4.2.0.34 \
 ipython==7.4.0
@@ -25,6 +24,10 @@ ipython==7.4.0
 run apt-get update && apt-get install -y \
 wget \
 unzip
+
+run wget --quiet \
+https://download.pytorch.org/whl/cu90/torch-0.4.0-cp35-cp35m-linux_x86_64.whl && \
+pip3 install torch-0.4.0-cp35-cp35m-linux_x86_64.whl
 
 run apt-get update && apt-get install -y \
 libsm6 \
