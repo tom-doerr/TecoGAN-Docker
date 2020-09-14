@@ -30,7 +30,9 @@ done
 for i in {0..2}
 do
     file="$LOG_PREFIX""$i"  
-    echo  \n file: $file
+    echo  "
+    ========================
+    output file: $file"
     tail $file
 done
 
