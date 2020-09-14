@@ -4,9 +4,6 @@ run apt-get update && apt-get install -y \
 git \
 python3-pip
 
-workdir /
-run git clone https://github.com/thunil/TecoGAN.git
-workdir /TecoGAN
 run pip3 install --upgrade setuptools
 run pip3 install --upgrade pip
 
