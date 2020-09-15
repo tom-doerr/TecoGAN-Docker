@@ -26,7 +26,7 @@ run_in_docker_and_log() {
 }
 
 print_all_log_endings() {
-    for file in log_file_array
+    for file in $log_file_array
     do
         echo  "
         ========================
