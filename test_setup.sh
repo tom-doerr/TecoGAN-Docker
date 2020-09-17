@@ -21,7 +21,7 @@ run_in_docker_and_log() {
     python_script_to_execute=$1
     log_postfix=$2
     log_file_name="$LOG_PREFIX""$log_postfix"
-    log_file_array+=(log_file_name)
+    log_file_array+=($log_file_name)
     run_in_docker "python3 $python_script_to_execute 2>&1 | tee $log_file_name"
 }
 
