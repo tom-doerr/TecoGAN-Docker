@@ -70,6 +70,7 @@ done
 
 #### 4. Start the docker container we just build
 You only need to start either the CPU or the GPU docker container.
+
 CPU version:
 ```bash
 docker run -it --mount src=$(pwd),target=/TecoGAN,type=bind -w /TecoGAN tecogan_cpu_image bash
