@@ -59,17 +59,28 @@ sudo systemctl restart docker
 Instructions for other platforms:
 https://github.com/NVIDIA/nvidia-docker
 
-#### 3. Build the docker image
+#### 3. Build the docker images
 ```bash
-docker build docker -t tecogan_image
+for e in docker/*
+do
+        dockerfile_name=$(basename $e)
+        docker build --file $e . -t "$dockerfile_name"_image 
+done
 ```
 
 #### 4. Start the docker container we just build
+You only need to start either the CPU or the GPU docker container.
+CPU version:
 ```bash
-docker run --gpus all -it --mount src=$(pwd),target=/TecoGAN,type=bind -w /TecoGAN tecogan_image bash
+docker run -it --mount src=$(pwd),target=/TecoGAN,type=bind -w /TecoGAN tecogan_cpu_image bash
+```
+GPU version:
+```bash
+docker run --gpus all -it --mount src=$(pwd),target=/TecoGAN,type=bind -w /TecoGAN tecogan_gpu_image bash
 ```
 
 #### 5. Run the model
+Run the following inside the docker container.
 ```bash
 # Download our TecoGAN model, the _Vid4_ and _TOS_ scenes shown in our paper and video.
 python3 runGan.py 0
